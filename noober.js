@@ -11,21 +11,22 @@ window.addEventListener('DOMContentLoaded', async function() {
   let firstName
   for (let i=0; i<json.length;i++) {
     // Temporaririly store all the necessary data from the entry
-    let firstName = json[i].passengerDetails.first
-    let lastName = json[i].passengerDetails.last
-    let phoneNumber = json[i].passengerDetails.phoneNumber
     let passengerDetails = json[i].passengerDetails
     let dropoffLocation = json[i].dropoffLocation
     let pickupLocation = json[i].pickupLocation
     let purpleRequested = json[i].purpleRequested
     let numberOfPassengers = json[i].numberOfPassengers
-    //console.log(json[i].passengerDetails.first) test to check if loop working
+        // Test that was used to check on loop early
+        //console.log(json[i].passengerDetails.first) 
     
     // Use conditional to determine level of service & save as variable
     let status
     let borderColour
+    let borderSize
       if (purpleRequested == true) {
       status = `Noober Purple`
+    // For fun, include border colour and size based on conditional/status
+
       borderColour = `purple`
       borderSize = 4
       } else if (numberOfPassengers > 3) {
@@ -38,6 +39,8 @@ window.addEventListener('DOMContentLoaded', async function() {
       borderSize = 4
     }
     console.log(status)
+    
+    //Insert the data into the HTML mockup using Insert Adjacent HTML to produce an entry for each passenger
 
     let htmlElement = document.querySelector(`.rides`)
     htmlElement.insertAdjacentHTML(`beforeend`,
@@ -73,12 +76,5 @@ window.addEventListener('DOMContentLoaded', async function() {
   </div>`)
   }
 
-  
-  
 
-  
-
-  // Insert the data into the HTML mockup
-
-  // Eventually tweak HTML mockup and modify based on 
 })
